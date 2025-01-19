@@ -1,18 +1,3 @@
-from IPython.display import HTML, display
-from google.colab import files
-from base64 import b64encode
-
-# First, upload the image
-print("Please upload your photo when prompted...")
-uploaded = files.upload()
-
-# Get the filename and encode the image
-file_name = list(uploaded.keys())[0]
-with open(file_name, 'rb') as f:
-    img_data = b64encode(f.read()).decode()
-
-# Define the HTML content with the embedded image
-html_content = f"""
 <!DOCTYPE html>
 <html lang="en" class="bg-black">
 <head>
@@ -22,38 +7,38 @@ html_content = f"""
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.cdnjs.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {{
+        body {
             font-family: 'Inter', sans-serif;
             background-color: black;
             color: white;
-        }}
-        a {{
+        }
+        a {
             color: #ff1493;
             transition: opacity 0.2s;
-        }}
-        a:hover {{
+        }
+        a:hover {
             opacity: 0.8;
-        }}
-        .schedule-time {{
+        }
+        .schedule-time {
             font-weight: 600;
             color: white;
             min-width: 45px;
             display: inline-block;
-        }}
-        .schedule-divider {{
+        }
+        .schedule-divider {
             color: rgba(255, 255, 255, 0.4);
             margin: 0 1rem;
-        }}
-        .form-group {{
+        }
+        .form-group {
             margin-bottom: 1.5rem;
-        }}
-        .form-label {{
+        }
+        .form-label {
             display: block;
             font-size: 0.875rem;
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 0.5rem;
-        }}
-        .form-input {{
+        }
+        .form-input {
             width: 100%;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -61,36 +46,36 @@ html_content = f"""
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
             transition: border-color 0.2s;
-        }}
-        .form-input:focus {{
+        }
+        .form-input:focus {
             outline: none;
             border-color: #ff1493;
-        }}
+        }
     </style>
 </head>
 <body class="bg-black text-white min-h-screen">
     <div class="max-w-4xl mx-auto p-6 space-y-16">
         <!-- Header with Photo -->
         <header class="text-center space-y-8">
-            <img src="data:image/jpeg;base64,{img_data}" 
+            <img src="Wedding_invite.jpeg" 
                  class="w-full max-w-2xl mx-auto rounded-lg mb-12 object-cover"
                  alt="Sinead & Dan"
                  style="aspect-ratio: 4/5;">
-            <h1 class="text-6xl font-bold tracking-tight">We're getting married!</h1>
+            <h1 class="text-6xl font-bold tracking-tight">29.08.25</h1>
             <div class="text-xl font-light tracking-wide">
-                <p>We would love to celebrate our wedding day with you.</p>
+                <p>Sinead & Dan would love to celebrate their wedding with you.</p>
             </div>
         </header>
 
         <!-- Main Info -->
         <section class="space-y-16">
             <div class="space-y-4">
-                <h2 class="text-2xl font-semibold tracking-wide">Sin&#233;ad & Dan's Big Day</h2>
+                <h2 class="text-2xl font-semibold tracking-wide">The Big Day</h2>
                 <div class="text-gray-300 space-y-1">
                     <p>Friday, August 29th, 2025</p>
                     <a href="https://maps.google.com/?q=Hilltop+Macclesfield" target="_blank" rel="noopener noreferrer" 
                        class="block hover:opacity-80 transition-opacity">
-                        <p class="text-gray-300 space-y-1">Hilltop Wedding Venue</p>
+                        <p class="text-lg">Hilltop Wedding Venue</p>
                     </a>
                 </div>
             </div>
@@ -176,17 +161,17 @@ Tom Smith - Child (age 7) - Vegetarian"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Dietary requirements</label>
+                    <label class="form-label">Dietary Requirements</label>
                     <textarea class="form-input" rows="3" placeholder="Please let us know of any dietary requirements"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Song requests</label>
+                    <label class="form-label">Song Requests</label>
                     <textarea class="form-input" rows="2" placeholder="What songs will get you on the dance floor?"></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Any special requirements?</label>
+                    <label class="form-label">Any Special Requirements</label>
                     <textarea class="form-input" rows="3" placeholder="Is there anything else we should know?"></textarea>
                 </div>
                 
@@ -203,7 +188,3 @@ Tom Smith - Child (age 7) - Vegetarian"></textarea>
     </div>
 </body>
 </html>
-"""
-
-# Display the complete website with the embedded image
-display(HTML(html_content))
